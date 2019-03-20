@@ -1,7 +1,5 @@
 module Blazer
-  class RunStatementJob < ActiveJob::Base
-    self.queue_adapter = :async
-
+  class RunStatementJob < ApplicationJob
     def perform(data_source_id, statement, options)
       data_source = Blazer.data_sources[data_source_id]
       begin
